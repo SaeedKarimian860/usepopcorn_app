@@ -213,8 +213,6 @@ function WatchedMoviesList({ watched }) {
   );
 }
 
-
-
 function WatchedMovie({ movie }) {
   return (
     <li>
