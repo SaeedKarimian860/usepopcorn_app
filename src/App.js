@@ -203,7 +203,6 @@ function WatchedSummary({ watched }) {
   );
 }
 
-
 function WatchedMoviesList({ watched }) {
   return (
     <ul className="list">
