@@ -111,7 +111,7 @@ function Main({ movies }) {
   );
 }
 
-function ListBox() {
+function ListBox({ movies }) {
   const [isOpen1, setIsOpen1] = useState(true);
   return (
     <div className="box">
@@ -121,12 +121,12 @@ function ListBox() {
       >
         {isOpen1 ? "–" : "+"}
       </button>
-      {isOpen1 && <MovieList />}
+      {isOpen1 && <MovieList movies={movies} />}
     </div>
   );
 }
 
-function MovieList() {
+function MovieList({ movies }) {
   return (
     <ul className="list">
       {movies?.map((movie) => (
