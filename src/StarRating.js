@@ -22,6 +22,7 @@ export default function StarRating({ maxRating = 5 }) {
     setRating(rating);
   }
 
+  
   return (
     <div style={containerStyle}>
       <div style={starContainerStyle}>
