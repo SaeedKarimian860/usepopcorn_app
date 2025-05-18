@@ -59,7 +59,7 @@ export default function App() {
   useEffect(function () {
     fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${KEY}&s=interstellar`)
       .then((res) => res.json())
-      .then((data) => console.log(data.Search));
+      .then((data) => setMovies(data.Search));
   }, []);
 
   return (
