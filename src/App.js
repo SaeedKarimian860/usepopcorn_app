@@ -58,10 +58,13 @@ export default function App() {
 
   useEffect(function () {
     async function fetchMovies() {
-      fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${KEY}&s=interstellar`)
-        .then((res) => res.json())
-        .then((data) => setMovies(data.Search));
+      const res = await fetch(
+        `http://www.omdbapi.com/?i=tt3896198&apikey=${KEY}&s=interstellar`
+      );
+      const data = await res.json();
+      setMovies(data.Search);
     }
+    fetchMovies();
   }, []);
 
   return (
