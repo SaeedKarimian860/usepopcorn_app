@@ -70,11 +70,14 @@ export default function App() {
           throw new Error("Something went wrong with fetching movies");
 
         const data = await res.json();
+        if (data.Response === "False") throw new Error("Movie not found");
+
         setMovies(data.Search);
-        setIsLoading(false);
       } catch (err) {
         console.error(err.message);
         setError(err.message);
+      } finally {
+        setIsLoading(false);
       }
     }
     fetchMovies();
@@ -93,7 +96,7 @@ export default function App() {
           {isLoading && <Loader />}
           {!isLoading && !error && <MovieList movies={movies} />}
           {error && <ErrorMessage message={error} />}
-          </Box>
+        </Box>
 
         <Box>
           <WatchedSummary watched={watched} />
