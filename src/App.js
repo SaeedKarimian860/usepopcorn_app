@@ -243,10 +243,6 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     (movie) => movie.imdbID === selectedId
   )?.userRating;
 
-  
-  // if (imdbRating > 8) [isTop, setIsTop] = useState(true);
-  // if (imdbRating > 8) return <p>Greatest ever!</p>;
-
   const {
     Title: title,
     Year: year,
@@ -259,6 +255,18 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     Director: director,
     Genre: genre,
   } = movie;
+
+  // if (imdbRating > 8) [isTop, setIsTop] = useState(true);
+  // if (imdbRating > 8) return <p>Greatest ever!</p>;
+
+  const [isTop, setIsTop] = useState(imdbRating > 8);
+  console.log(isTop);
+  useEffect(
+    function () {
+      setIsTop(imdbRating > 8);
+    },
+    [imdbRating]
+  );
 
   function handleAdd() {
     const newWatchedMovie = {
