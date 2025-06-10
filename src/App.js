@@ -286,7 +286,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
       if (userRating) countRef.current++;
       if (userRating) count++;
     },
-    [userRating]
+    [userRating, count]
   );
 
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
