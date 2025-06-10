@@ -279,10 +279,12 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
   const [userRating, setUserRating] = useState("");
 
   const countRef = useRef(0);
+  let count = 0;
 
   useEffect(
     function () {
       if (userRating) countRef.current++;
+      if (userRating) count++;
     },
     [userRating]
   );
@@ -332,6 +334,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
       runtime: Number(runtime.split(" ").at(0)),
       userRating,
       countRatingDecisions: countRef.current,
+      count,
     };
 
     onAddWatched(newWatchedMovie);
